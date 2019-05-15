@@ -29,20 +29,32 @@ var incorrect = 0;
 var questionNum = 0;
 
 // function to have the question generated and then put on the page
-function generateQuestions() {
+function questionRound() {
+    var userChoice;
+    var correctIndex;
     // choose a question
     for (var i = 0; i < trivia.length; i++) {
+        //questions on the page
         var currentQuestion = trivia[i];
         var answers = trivia[i].answers;
+        correctIndex = trivia[i].correct;
         // put the question in a h4 tag
         var questionText = $("<h3>").addClass("row").text(currentQuestion.question);
         $("#question").append(questionText);
         for (var j = 0; j < answers.length; j++) {
-            var answersText = $("<p>").addClass("row").text(answers[j]);
+            var answersText = $("<p>").addClass("row answer-choice").attr("data-index", answers.indexOf(answers[j])).text(answers[j]);
             $("#question").append(answersText);
         }
+        $(".answer-choice").on("click", function(){
+            userChoice = parseInt($(this).attr("data-index"));
+            console.log(userChoice);
+            if (userChoice === correctIndex) {
+                correct++
+                console.log("YAY!")
+            }
+        });
 
-
+        
     }
     // put questions in a p tag, with data of correct or incorrect
 }
@@ -51,4 +63,10 @@ function generateQuestions() {
 // notification for win/lose with the correct answer, timed.
 // correct answers/play again when the game is over.
 
-generateQuestions();
+// question timer
+// answer/
+// for loop to run through
+    // onclick class 
+    // empty function
+    // start function
+questionRound();
