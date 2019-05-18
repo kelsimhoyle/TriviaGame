@@ -1,8 +1,21 @@
+body {
+    background-image: url(../images/background.png);
+    background-repeat: repeat;
+}
+
+.content {
+    background-color: whitesmoke;
+}
+
 .jumbotron {
     background-color: 	#007399;
     color: whitesmoke;
+    margin-bottom: 0;
 }
 
+h3 {
+    margin: 10px;
+}
 .answer-choice {
     background-color: lightgray;
     font-size: 24px;
@@ -18,4 +31,8 @@ p.answer-choice:hover {
 
 p.answer-choice:active {
     background-color: #08A677;
+}
+
+.answer-div {
+padding: 20px 0;
 }

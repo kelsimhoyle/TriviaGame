@@ -4,6 +4,9 @@ var trivia = [
         question: "What is Jerry/Larry/Terry's real name?",
         answers: ["Jerry", "Garry", "Larry", "Terry"],
         correct: 1,
+        correctGif: "<img src='assets/images/jerry.gif' alt='Jerry'>",
+        correctResponse: "That's right! How did you even know who he is?",
+        wrongGif: "<img src='assets/images/jerryWrong.gif' alt='Jerry'>",
     },
     {
         question: "Who is Leslie's number one crush?",
@@ -93,7 +96,7 @@ function roundQuestion() {
             answer();
         }
     }
-        var runTimer = setInterval(timerDecrease, 1000);
+        // var runTimer = setInterval(timerDecrease, 1000);
 
     // when the user clicks an answer choice...
     $(".answer-choice").on("click", function(){
@@ -110,12 +113,16 @@ function roundQuestion() {
 function answer() {
     $("#question").empty();
     $("#timer, #current-question").hide();
-    var answerDiv = $("<div>").addClass("row answer-div")
+    var answerDiv = $("<div>").addClass("answer-div");
+    var gifDiv = $("<div>").addClass("row");
+    var textDiv = $("<div>").addClass("row flex-row justify-content-center")
     if (userChoice === correctIndex) {
         correct++;
         console.log("YAY!")
         // show the answer div with a timer, and then go to the next question
-        answerDiv.text("You got it right! Yay!");
+        var answerText = $("<p>").text(trivia[questionNum].correctResponse);
+        textDiv.append(answerText);
+        gifDiv.html(trivia[questionNum].correctGif);
     } else if (userChoice !== correctIndex) {
         incorrect++;
         // show the answer div with the correct answer, with a timer
@@ -123,6 +130,7 @@ function answer() {
     } else if (userChoice === "undefined") {
 
     }
+    answerDiv.append(textDiv, gifDiv);
     $("#game").append(answerDiv);
     questionNum++;
     console.log(questionNum);
