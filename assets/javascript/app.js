@@ -19,6 +19,36 @@ var trivia = [
         question: "What is Ben Wyatt's favorite food?",
         answers: ["Bacon", "Pizza", "Calzones", "Waffles"],
         correct: 2
+    },
+    {
+        question: "What day do Tom and Donna celebrate?",
+        answers: ["Treat Yo' Self", "Galentines", "Breakfast Day", "Nap Day"],
+        correct: 0
+    },
+    {
+        question: "What is both of Ron's ex-wive's names?",
+        answers: ["Dianne", "Tammy", "Ann", "Amy"],
+        correct: 1
+    },
+    {
+        question: "What Indiana city does the show take place?",
+        answers: ["Eagleton", "Indianapolis", "Bloomington", "Pawnee"],
+        correct: 3
+    },
+    {
+        question: "What animal does the whole city love?",
+        answers: ["A dog", "A mouse", "A miniture pony", "A raccoon"],
+        correct: 2
+    },
+    {
+        question: "What is Andy's band's name?",
+        answers: ["Radwagon", "The Andy Andy Andys", "Mouse Rat", "Threeskin"],
+        correct: 2
+    },
+    {
+        question: "What is the best breakfast joint in Pawnee?",
+        answers: ["Sweetums", "JJ's Diner", "Big and Wide", "Fat Sack"],
+        correct: 1
     }
 ];
 
@@ -48,7 +78,7 @@ function roundQuestion() {
     var questionText = $("<h4>").text(currentQuestion.question);
     $("#question").append(questionText);
     for (var i = 0; i < answers.length; i++) {
-        var answersText = $("<p>").addClass("row answer-choice").attr("data-index", answers.indexOf(answers[i])).text(answers[i]);
+        var answersText = $("<p>").addClass("row flex-row justify-content-center answer-choice").attr("data-index", answers.indexOf(answers[i])).text(answers[i]);
         $("#question").append(answersText);
     }
 
@@ -59,6 +89,7 @@ function roundQuestion() {
         $("#time-remaining").text(timer);
         } else {
             clearInterval(runTimer);
+            userChoice = -1;
             answer();
         }
     }
@@ -110,14 +141,14 @@ function endGame() {
     console.log("running");
     $(".answer-div").empty().hide();
     var results = $("<div>").addClass("results");
-    var gameOver = $("<h3>").text("Game Over!")
+    var gameOver = $("<h3>").addClass("text-center").text("Game Over!")
     var resultsText = $("<p>").text(`You got ${correct} correct and ${incorrect} wrong. Play again?`);
     results.append(gameOver, resultsText);
     $("#game").append(results);
 }
 
 function playGame() {
-    $("#start").hide();
+    $("#start, .welcome-content").hide();
     $("#game").show();
     roundQuestion();
 }

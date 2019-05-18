@@ -1,0 +1,21 @@
+.jumbotron {
+    background-color: 	#007399;
+    color: whitesmoke;
+}
+
+.answer-choice {
+    background-color: lightgray;
+    font-size: 24px;
+}
+
+p.answer-choice {
+    padding: 5px;
+}
+
+p.answer-choice:hover {
+    background-color: #09B0AE;
+}
+
+p.answer-choice:active {
+    background-color: #08A677;
+}
