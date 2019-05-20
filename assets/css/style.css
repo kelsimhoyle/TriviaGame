@@ -1,20 +1,31 @@
 body {
     background-image: url(../images/background.png);
     background-repeat: repeat;
+    margin-bottom: 5%;
 }
 
 .content {
     background-color: whitesmoke;
+    padding: 3%;
+    border-radius: 2%;
 }
 
 .jumbotron {
     background-color: 	#007399;
     color: whitesmoke;
-    margin-bottom: 0;
+}
+
+.welcome-content {
+    padding: 6% 0;
+}
+ 
+img{
+    margin: auto;
+    padding: 2%;
 }
 
 h3 {
-    margin: 10px;
+    margin: 10px auto;
 }
 .answer-choice {
     background-color: lightgray;
